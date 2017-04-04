@@ -1,0 +1,32 @@
+<ion-header no-border>
+  <ion-navbar color="primary">
+    <ion-title>Transpoter</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content> 
+ 	<ion-grid style="top:30%; position: absolute;">
+	  <ion-row>
+	    <ion-col col-12 style="text-align:center; color:#2d2d2d">
+	    	 <ion-icon name="bus" style="font-size:5em"></ion-icon> 
+	   <!-- 	<img src="../assets/images/car_smile_blue.png" style="max-width: 200px;max-height: 200px;">-->
+				<p>No Vehicles are added yet!</p>
+				<button ion-button color="dark" outline (click)= "addVehicle()">
+					 <ion-icon name="add"></ion-icon>&nbsp;Add a vehicle
+				</button>
+	    </ion-col>
+	  </ion-row> 
+</ion-grid>
+
+<ion-list>
+  <ion-item>
+    <ion-thumbnail item-left>
+      <img src="img/thumbnail-totoro.png">
+    </ion-thumbnail>
+    <h2>My Neighbor Totoro</h2>
+    <p>Hayao Miyazaki • 1988</p>
+    <button ion-button clear item-right>View</button>
+  </ion-item>
+</ion-list>
+ 
+</ion-content>

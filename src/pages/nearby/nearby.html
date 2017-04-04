@@ -1,0 +1,25 @@
+<ion-header no-border>
+  <ion-navbar color="primary">
+    <ion-title>Transpoter</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+ <div #map id="map"></div>
+
+<ion-fab  bottom left>
+    <ion-item>
+    <ion-label>Filters</ion-label>
+    <ion-select multiple="true" cancelText="Cancel" okText="Done" [(ngModel)]="filters">
+      <ion-option value="local_cabs">Local Cabs</ion-option>
+      <ion-option value="autos">Autos</ion-option>
+      <ion-option value="private_buses">Private Buses</ion-option>
+      <ion-option value="public_buses">Public Buses</ion-option>
+      <ion-option value="trucks">Local Trucks</ion-option>
+      <ion-option value="trucks">Ambulances</ion-option>
+    </ion-select>
+    </ion-item>
+ </ion-fab>
+
+</ion-content>

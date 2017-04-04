@@ -1,0 +1,287 @@
+<ion-header no-border>
+    <ion-navbar color="primary">
+        <ion-title>{{vehicle.name}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-card>
+        <ion-item>
+            <h2 (click)="open1 = !open1 ;cd.detectChanges()" style="padding:1px">
+                <ion-icon name="contact"></ion-icon>&nbsp; General Information
+                <span style="float:right">
+                    <ion-icon ios="ios-arrow-{{open1 ? 'down' : 'up'}}" md="ios-arrow-{{open ? 'down' : 'up'}}" ></ion-icon>
+                </span>
+            </h2>
+            <div [hidden]="!open1">
+                <ion-grid padding>
+                    <ion-row>
+                        <ion-col col-6>
+                            <p>Vehicle Id</p>
+                        </ion-col>
+                        <ion-col col-6>
+                            <p>{{vehicle.id}}</p>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-6>
+                            <p>Name</p>
+                        </ion-col>
+                        <ion-col col-6>
+                            <p>{{vehicle.name}}</p>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-6>
+                            <p>Driver</p>
+                        </ion-col>
+                        <ion-col col-6>
+                            <p>{{vehicle.driver}}</p>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-6>
+                            <p>Driver Contact</p>
+                        </ion-col>
+                        <ion-col col-6>
+                            <p>{{vehicle.driverContact}}</p>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-6>
+                            <p>Agency</p>
+                        </ion-col>
+                        <ion-col col-6>
+                            <p>{{vehicle.agency}}</p>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-6>
+                            <p>Agency Contact</p>
+                        </ion-col>
+                        <ion-col col-6>
+                            <p>{{vehicle.agencyContact}}</p>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-6>
+                            <p>Agency Address</p>
+                        </ion-col>
+                        <ion-col col-6>
+                            <p>{{vehicle.agencyAddress}}</p>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </div>
+        </ion-item>
+    </ion-card>
+
+    <ion-card>
+        <ion-item>
+            <h2 (click)="open2 = !open2 ;cd.detectChanges()" style="padding:1px">
+                <ion-icon name="pin"></ion-icon>&nbsp; Location
+                <span style="float:right">
+                    <ion-icon ios="ios-arrow-{{open2 ? 'down' : 'up'}}" md="ios-arrow-{{open2 ? 'down' : 'up'}}" ></ion-icon>
+                </span>
+            </h2>
+            <div [hidden]="!open2">
+                <ion-grid padding style="padding-bottom: 0px;">
+                    <ion-row>
+                        <ion-col col-12>
+                            <p>Phase 2, Hi-tech city, Hyderabad</p>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row style="background-color:#387ef5;text-align: center;
+                     border: 1px solid #387ef5">
+                        <ion-col col-12>
+                            <p style="color:#fff">UpComing stops</p>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row style="border: 1px solid #999">
+                        <ion-col col-6 style="border-right: 1px solid #999">
+                            <p>Stop1</p>
+                        </ion-col>
+                        <ion-col col-6>
+                            <p>11:30 AM</p>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row style="border: 1px solid #999">
+                        <ion-col col-6 style="border-right: 1px solid #999">
+                            <p>Stop2</p>
+                        </ion-col>
+                        <ion-col col-6>
+                            <p>12:00 AM</p>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row style="border: 1px solid #999">
+                        <ion-col col-6 style="border-right: 1px solid #999">
+                            <p>Stop3</p>
+                        </ion-col>
+                        <ion-col col-6>
+                            <p>01:12 PM</p>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+                <ion-item>
+                    <span item-left><i><a style="text-decoration: underline">More...</a></i></span>
+                    <button ion-button icon-left clear item-right>
+                    <ion-icon name="navigate"></ion-icon>
+                        Track It
+                    </button>
+                </ion-item>
+
+                <ion-item>
+                    <span item-right>
+                    <i style="font-size:11px">
+                    Last update 10:33 AM
+                    </i>
+                </span>
+                </ion-item>
+            </div>
+        </ion-item>
+    </ion-card>
+
+    <ion-card>
+        <ion-item>
+            <h2 (click)="open4 = !open4 ;cd.detectChanges()" style="padding:1px">
+                <ion-icon name="grid"></ion-icon>&nbsp; Vacancy
+                <span style="float:right">
+                    <ion-icon ios="ios-arrow-{{open4 ? 'down' : 'up'}}" md="ios-arrow-{{open4 ? 'down' : 'up'}}" ></ion-icon>
+                </span>
+            </h2>
+            <div [hidden]="!open4">
+                <ion-row>
+                    <ion-col col-12>
+                        <p>Available seats 10 of 30</p>
+                    </ion-col>
+                </ion-row>
+
+                <ion-grid style="border:1px solid #999">
+                    <ion-row>
+                        <ion-col col-1 *ngFor='let value of seatsRow1'>
+                            <div style="width:10px; height:10px; background-color: #999"></div>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-1 *ngFor='let value2 of seatsRow2'>
+                            <div style="width:10px; height:10px; border:1px solid #999"></div>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-1 *ngFor='let value3 of seatsRow3'>
+                            <div style="width:10px; height:10px; background-color: #999"></div>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+
+
+            </div>
+        </ion-item>
+    </ion-card>
+
+    <ion-card>
+        <ion-item>
+            <h2 (click)="open3 = !open3 ;cd.detectChanges()" style="padding:1px">
+                <ion-icon name="megaphone"></ion-icon>&nbsp;Fares, offers/Promos
+                <span style="float:right">
+                    <ion-icon ios="ios-arrow-{{open3 ? 'down' : 'up'}}" md="ios-arrow-{{open3 ? 'down' : 'up'}}" ></ion-icon>
+                </span>
+            </h2>
+            <div [hidden]="!open3">
+                <ion-row>
+                    <ion-col col-12>
+                        <ul>
+                            <li>
+                                <p>Get 20% off on all tickets</p>
+                            </li>
+                            <li>
+                                <p>Use U758 code & grab 15% off</p>
+                            </li>
+                        </ul>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-12>
+                        <p>Min. Fare: Rs. 150</p>
+                    </ion-col>
+                </ion-row>
+            </div>
+        </ion-item>
+    </ion-card>
+
+    <ion-card>
+        <ion-item>
+            <h2 (click)="open5 = !open5 ;cd.detectChanges()" style="padding:1px">
+                <ion-icon name="cash"></ion-icon>&nbsp;Payment
+                <span style="float:right">
+                    <ion-icon ios="ios-arrow-{{open5 ? 'down' : 'up'}}" md="ios-arrow-{{open5 ? 'down' : 'up'}}" ></ion-icon>
+                </span>
+            </h2>
+            <div [hidden]="!open5">
+                <ion-row>
+                    <ion-col col-12>
+                        <p>My Wallet</p>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col col-12>
+                        <p>Net Banking</p>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col col-12>
+                        <p>Credit Card</p>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col col-12>
+                        <p>Debit Card</p>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col col-12>
+                        <button ion-button full small>Proceed to pay</button>
+                    </ion-col>
+                </ion-row>
+
+            </div>
+        </ion-item>
+    </ion-card>
+
+    <ion-card>
+        <ion-item>
+            <h2 (click)="open6 = !open6 ;cd.detectChanges()" style="padding:1px">
+                <ion-icon name="mic"></ion-icon>&nbsp;Call/Chat Driver
+                <span style="float:right">
+                    <ion-icon ios="ios-arrow-{{open6 ? 'down' : 'up'}}" md="ios-arrow-{{open6 ? 'down' : 'up'}}" ></ion-icon>
+                </span>
+            </h2>
+            <div [hidden]="!open6">
+                <ion-row>
+                    <ion-col col-12>
+                        Audio Call
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col col-12>
+                        Text Chat
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col col-12>
+                        <button ion-button full small>Proceed</button>
+                    </ion-col>
+                </ion-row>
+
+            </div>
+        </ion-item>
+    </ion-card>
+
+</ion-content>
