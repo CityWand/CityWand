@@ -79,8 +79,13 @@ $font-path: "../assets/fonts/";
   	font-weight: 400;
  }
 
+ b{
+	font-family: "Avenir Next";
+	font-weight: 700;
+ }
 
- span, h2, h1, h3, h4, b, i, button{
+
+ span, h2, h1, h3, h4, i, button{
 	font-family: "Avenir Next";
  }
  .toolbar-title{

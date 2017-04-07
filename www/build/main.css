@@ -63,7 +63,12 @@ p {
   font-weight: 400;
 }
 
-span, h2, h1, h3, h4, b, i, button {
+b {
+  font-family: "Avenir Next";
+  font-weight: 700;
+}
+
+span, h2, h1, h3, h4, i, button {
   font-family: "Avenir Next";
 }
 
@@ -24599,4 +24604,24 @@ ion-navbar.toolbar {
   .wp .modal-wrapper > .ion-page > ion-header > ion-content.statusbar-padding:first-child[padding-top] .scroll-content {
     padding-top: calc(16px + 20px);
   }
+}
+
+.item-md {
+  border-bottom: 1px solid #dedede;
+}
+
+.list-md .item-block .item-inner {
+  border-bottom: none;
+}
+
+ion-badge p {
+  color: #fff !important;
+}
+
+.list-ios .item-block .item-inner {
+  border-bottom: 0px;
+}
+
+.list-ios > .item-block {
+  border-bottom: 0.55px solid #c8c7cc;
 }

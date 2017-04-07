@@ -4,29 +4,59 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content> 
- 	<ion-grid style="top:30%; position: absolute;">
-	  <ion-row>
-	    <ion-col col-12 style="text-align:center; color:#2d2d2d">
-	    	 <ion-icon name="bus" style="font-size:5em"></ion-icon> 
-	   <!-- 	<img src="../assets/images/car_smile_blue.png" style="max-width: 200px;max-height: 200px;">-->
-				<p>No Vehicles are added yet!</p>
-				<button ion-button color="dark" outline (click)= "addVehicle()">
+<ion-content style="background:#fff; height: 100%"  *ngIf="vehicles.length < 1">
+  <ion-grid style="top:30%; position: absolute;">
+    <ion-row>
+      <ion-col col-12 style="text-align:center; color:#2d2d2d">
+        <ion-icon name="bus" style="font-size:5em"></ion-icon>
+        <!-- 	<img src="../assets/images/car_smile_blue.png" style="max-width: 200px;max-height: 200px;">-->
+        <p>No Vehicles are added yet!</p>
+        <button ion-button color="dark" outline (click)="addVehicle()">
 					 <ion-icon name="add"></ion-icon>&nbsp;Add a vehicle
 				</button>
-	    </ion-col>
-	  </ion-row> 
-</ion-grid>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
 
-<ion-list>
-  <ion-item>
-    <ion-thumbnail item-left>
-      <img src="img/thumbnail-totoro.png">
-    </ion-thumbnail>
-    <h2>My Neighbor Totoro</h2>
-    <p>Hayao Miyazaki • 1988</p>
-    <button ion-button clear item-right>View</button>
-  </ion-item>
-</ion-list>
- 
+<ion-content style="background:#f4f4f4; height: 100%" *ngIf="vehicles.length > 0">
+    <ion-searchbar style="margin-bottom: 10px;" (ionInput)="searchVehicel($event)"></ion-searchbar>
+    <b style="padding:20px">My Favorites</b>
+    <ion-list padding style="margin-bottom: 10px;padding-left: 0;padding-right: 0;">
+      <button ion-item *ngFor="let vehicle of vehicles.favorite">
+        <ion-thumbnail item-left>
+          <img src="{{vehicle.dp}}">
+        </ion-thumbnail>
+        <h2>{{vehicle.title}}</h2>
+        <p>{{vehicle.desc}}</p>
+        <ion-badge style="position: absolute; top: 0; right: 0; border-radius: 0px;color:#fff">
+          <p>Local Cab</p>
+        </ion-badge>
+      </button>
+    </ion-list>
+    <b style="padding:20px">Recent Visits</b>
+    <ion-list padding style="margin-bottom: 10px;padding-left: 0;padding-right: 0;">
+      <button  ion-item *ngFor="let vehicle of vehicles.favorite">
+        <ion-thumbnail item-left>
+          <img src="{{vehicle.dp}}">
+        </ion-thumbnail>
+        <h2>{{vehicle.title}}</h2>
+        <p>{{vehicle.desc}}</p>
+        <ion-badge style="position: absolute; top: 0; right: 0; border-radius: 0px;color:#fff">
+          <p>Local Cab</p>
+        </ion-badge>
+      </button>
+    </ion-list>
+    <!--<ion-card *ngFor="let vehicle of vehicles.favorite">
+      <ion-item >
+        <ion-thumbnail item-left>
+          <img src="{{vehicle.dp}}">
+        </ion-thumbnail>
+        <h2>{{vehicle.title}}</h2>
+        <p>{{vehicle.desc}}</p>
+        <ion-note item-right="" class="note note-md">3:43 pm</ion-note>
+        <ion-badge item-right  item-top>260k</ion-badge>
+      </ion-item>
+
+    </ion-card>-->
 </ion-content>
