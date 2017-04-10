@@ -13,7 +13,7 @@ import { VehicleDetails } from '../pages/VehicleDetails/VehicleDetails';
     HomePage,
     AddVehicle,
     NearByPage,
-    VehicleDetails
+    VehicleDetails,
   ],
   imports: [
     IonicModule.forRoot(App)
@@ -23,7 +23,7 @@ import { VehicleDetails } from '../pages/VehicleDetails/VehicleDetails';
     HomePage,
     AddVehicle,
     NearByPage,
-    VehicleDetails
+    VehicleDetails,
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

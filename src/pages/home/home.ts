@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, Events } from 'ionic-angular';
 import { AddVehicle } from '../AddVehicle/AddVehicle';
+import { VehicleDetails } from '../VehicleDetails/VehicleDetails';
 
 
 @Component({
@@ -9,25 +10,50 @@ import { AddVehicle } from '../AddVehicle/AddVehicle';
 })
 export class HomePage {
 
-  vehicles: any = [];
+  favorites: any = [];
+  recentVisits: any = [];
 
-  constructor(public navCtrl: NavController, public events: Events) {}
- 
-  getVehicleCount = function () {
-    this.vehicles.length;
-  }
+  constructor(public navCtrl: NavController, public events: Events) { }
 
   ionViewDidLoad() {
-    this.events.subscribe("add:vehicle", (vehicles) => {
-      this.vehicles = vehicles;
+    this.events.subscribe("add:vehicle", () => {
+      this.favorites = [
+        {
+          id: "5050",
+          dp: "../assets/images/cab1.jpg",
+          title: "SRS Cab-1",
+          desc: "SRS Travels, Hyderabad",
+          type: "Local Cab",
+          typeBagdeColor: "#387ef5"
+        },
+        {
+          id: "5050",
+          dp: "../assets/images/cab2.jpg",
+          title: "SRS Cab-2",
+          desc: "SRS Travels, Hyderabad",
+          type: "Local Cab",
+          typeBagdeColor: "#387ef5"
+        },
+
+      ];
+      this.recentVisits = [
+        {
+          id: "5050",
+          dp: "../assets/images/cab3.jpg",
+          title: "SRS Cab-3",
+          desc: "SRS Travels, Hyderabad",
+          type: "Local Cab",
+          typeBagdeColor: "#387ef5"
+        }
+      ];
     });
   }
   addVehicle() {
     this.navCtrl.push(AddVehicle);
   }
 
-  selectVehicle(){
-    
+  selectVehicle(vehicle) {
+    this.navCtrl.push(VehicleDetails, {vehicle : vehicle} );
   }
 
   searchVehicel(ev: any) {

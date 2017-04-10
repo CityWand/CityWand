@@ -16,10 +16,6 @@ export class VehicleDetails {
     constructor(public navCtrl: NavController, public events: Events, public params: NavParams,
     public cd :ChangeDetectorRef) {
         this.vehicle = params.get('vehicle');
-        console.log(this.vehicle);
     }
-
-    ionViewDidLoad() {
-    }
-
+    ionViewDidLoad() { }
 }

@@ -4,7 +4,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content style="background:#fff; height: 100%"  *ngIf="vehicles.length < 1">
+<ion-content style="background:#fff; height: 100%"  *ngIf="favorites.length < 1 && recentVisits.length < 1">
   <ion-grid style="top:30%; position: absolute;">
     <ion-row>
       <ion-col col-12 style="text-align:center; color:#2d2d2d">
@@ -19,33 +19,35 @@
   </ion-grid>
 </ion-content>
 
-<ion-content style="background:#f4f4f4; height: 100%" *ngIf="vehicles.length > 0">
+<ion-content style="background:#f4f4f4; height: 100%" *ngIf="favorites.length > 0 || recentVisits.length > 0">
     <ion-searchbar style="margin-bottom: 10px;" (ionInput)="searchVehicel($event)"></ion-searchbar>
-    <b style="padding:20px">My Favorites</b>
+    <b style="padding:20px">My Favorites ({{favorites.length}})</b>
     <ion-list padding style="margin-bottom: 10px;padding-left: 0;padding-right: 0;">
-      <button ion-item *ngFor="let vehicle of vehicles.favorite">
+      <button ion-item *ngFor="let vehicle of favorites" (click)="selectVehicle(vehicle)">
         <ion-thumbnail item-left>
           <img src="{{vehicle.dp}}">
         </ion-thumbnail>
         <h2>{{vehicle.title}}</h2>
         <p>{{vehicle.desc}}</p>
-        <ion-badge style="position: absolute; top: 0; right: 0; border-radius: 0px;color:#fff">
-          <p>Local Cab</p>
+        <ion-badge 
+        style="position: absolute; top: 0; right: 0; border-radius: 0px;color:#fff; background-color: #387ef5">
+          <p style="font-size: 10px">{{vehicle.type}}</p>
         </ion-badge>
       </button>
     </ion-list>
-    <b style="padding:20px">Recent Visits</b>
+    <b style="padding:20px">Recent Visits ({{recentVisits.length}})</b>
     <ion-list padding style="margin-bottom: 10px;padding-left: 0;padding-right: 0;">
-      <button  ion-item *ngFor="let vehicle of vehicles.favorite">
+      <ion-item *ngFor="let vehicle of recentVisits" (click)="selectVehicle(vehicle)">
         <ion-thumbnail item-left>
           <img src="{{vehicle.dp}}">
         </ion-thumbnail>
         <h2>{{vehicle.title}}</h2>
         <p>{{vehicle.desc}}</p>
-        <ion-badge style="position: absolute; top: 0; right: 0; border-radius: 0px;color:#fff">
-          <p>Local Cab</p>
+       <ion-badge style="position: absolute; top: 0; right: 0; border-radius: 0px;color:#fff;
+                background-color: #387ef5">
+          <p  style="font-size: 10px">{{vehicle.type}}</p>
         </ion-badge>
-      </button>
+      </ion-item>
     </ion-list>
     <!--<ion-card *ngFor="let vehicle of vehicles.favorite">
       <ion-item >
